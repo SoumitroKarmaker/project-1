@@ -27,7 +27,35 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         backgroundColor: Colors.blue,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_back_ios,
+            ),
+          ),
+          actions: [
+            Stack(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.notifications,
+                    )),
+                Positioned(right: 5,top: 2,
+                    child: CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.red,
+                      child: Text('39',style: TextStyle(fontSize: 12),),
+                ))
+              ],
+            ),
+          ],
+        ),
         body: Column(
           children: [
             Stack(
@@ -161,8 +189,7 @@ class _HomeState extends State<Home> {
               height: 40,
               width: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.white),
+                  borderRadius: BorderRadius.circular(50), color: Colors.white),
               child: Center(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -179,17 +206,19 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
-
                   ],
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text("It is a long established fact that a reader will be distracted "
-                  "by the readable content of a page when looking at its layout."
-                  " The point of using Lorem Ipsum is that it has a more-or-less "
-                  "normal distribution",style: TextStyle(color: Colors.white),),
+              child: Text(
+                "It is a long established fact that a reader will be distracted "
+                "by the readable content of a page when looking at its layout."
+                " The point of using Lorem Ipsum is that it has a more-or-less "
+                "normal distribution",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
